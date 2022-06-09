@@ -19,7 +19,7 @@ app.use(cors())
 
 app.use(express.static("public"));
 
-app.set("view engine","hbs")
+app.set("view engine","hbs");
 
 app.engine("hbs", engine({
   extname:"hbs", 
