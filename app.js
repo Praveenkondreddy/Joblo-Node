@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken');
 const router=require('./routes/applicants')
 const db=require('./database')
 const cors=require("cors")
+const bodyparser =require("body-parser")
 const authenticateToken=require('./middlewears/middlewears')
 const { engine } = require("express-handlebars"); 
 
@@ -13,6 +14,8 @@ db.connect(function(err) {
 });
 
 const app=express()
+const urlencodedparser= bodyparser.urlencoded({extended: false})
+app.use(bodyparser.json())
 app.use(express.json());
 
 app.use(cors())
@@ -32,7 +35,7 @@ app.get("/",(req,res) =>{
   res.render("main");
 })
  
-app.get("/signin",(req,res) =>{
+app.get("/signin", urlencodedparser, (req,res) =>{
   res.render("login");
 })
 
@@ -51,7 +54,7 @@ app.post("/register",(req,res)=>{
     })
   }) 
 
-app.post("/login",(req,res)=>{
+app.post("/login",urlencodedparser,(req,res)=>{
     const {username,password}=req.body
     console.log(req.body)
     let sql=`select * from users where username= '${username}'`
