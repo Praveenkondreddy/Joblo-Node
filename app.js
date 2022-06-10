@@ -143,14 +143,15 @@ app.post("/editProfile",(req,res)=>{
   })
 })
 
-app.put("/editProfile/",(req,res)=>{
+app.put("/editProfile/:id",(req,res)=>{
   
   console.log(req.body)
   
   let details=req.body
+  let id=req.params
   
   let sql=`UPDATE Profile
-  SET ?`;
+  SET ? where id ='${id}'`;
   let query=db.query(sql,details,err =>{
     if(err){
       console.log("add error")
