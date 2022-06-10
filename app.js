@@ -148,10 +148,10 @@ app.put("/editProfile/:id",(req,res)=>{
   console.log(req.body)
   
   let details=req.body
-  let id=req.params
+  let {id}=req.params
   
   let sql=`UPDATE Profile
-  SET ? where id ='${id}'`;
+  SET ? where phone ='${id}'`;
   let query=db.query(sql,details,err =>{
     if(err){
       console.log("add error")
