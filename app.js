@@ -113,7 +113,7 @@ app.post("/login",urlencodedparser,(req,res)=>{
     })
   })
 
-app.use("/applicants",authenticateToken, router);
+app.use("/applicants", router);
 
 app.post("/posts",(req,res)=>{
     
@@ -161,6 +161,20 @@ app.put("/editProfile/:id",(req,res)=>{
       throw err
     }
     res.send("updated")
+  
+  })
+  
+})
+
+app.get("/profile/",(req,res)=>{
+  
+  let sql=`select * from profile`;
+  let query=db.query(sql,(err,results) =>{
+    if(err){
+      console.log("add error")
+      throw err
+    }
+    res.send(results)
   
   })
   
