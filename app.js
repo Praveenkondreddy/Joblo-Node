@@ -23,7 +23,7 @@ app.use(cors())
 
 app.use(express.static("public"));
 
-app.set("view engine","hbs");
+
 
 app.engine("hbs", engine({
   extname:"hbs", 
@@ -31,6 +31,8 @@ app.engine("hbs", engine({
   partialDir : `${__dirname}/views/partials`,
   defaultLayout:'index'
 }))
+
+app.set("view engine","hbs");
  
 app.get("/",(req,res) =>{
   res.render("main");
