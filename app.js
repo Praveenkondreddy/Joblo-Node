@@ -1,6 +1,5 @@
 const express = require("express")
 const jwt = require('jsonwebtoken');
-const {Sequelize} =require("sequelize");
 const router=require('./routes/applicants')
 const db=require('./database')
 const cors=require("cors")

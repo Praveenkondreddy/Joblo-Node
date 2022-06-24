@@ -1,5 +1,4 @@
 const express=require("express");
-const Sequelize=require('Sequelize');
 
 
 var mysql = require('mysql');
