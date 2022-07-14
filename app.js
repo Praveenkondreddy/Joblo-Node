@@ -8,10 +8,10 @@ const authenticateToken=require('./middlewears/middlewears')
 const { engine } = require("express-handlebars"); 
 
 
-// db.connect(function(err) {
-//   if (err) throw err;
-//   console.log("Connected");   
-// });
+ db.connect(function(err) {
+   if (err) throw err;
+   console.log("Connected");   
+ });
 
 const port=process.env.PORT|3000
 
