@@ -13,6 +13,8 @@ db.connect(function(err) {
   console.log("Connected!");   
 });
 
+const port=process.env.PORT|3000
+
 const app=express()
 const urlencodedparser= bodyparser.urlencoded({extended: false})
 app.use(bodyparser.json())
@@ -181,4 +183,4 @@ app.get("/profile/",(req,res)=>{
   })
   
 })
-app.listen(process.env.PORT || 3000); 
+app.listen(port); 
