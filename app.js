@@ -6,6 +6,7 @@ const cors=require("cors")
 const bodyparser =require("body-parser")
 const authenticateToken=require('./middlewears/middlewears')
 const { engine } = require("express-handlebars"); 
+const session = require('express-session');
 
 
  db.connect(function(err) {
@@ -19,7 +20,11 @@ const app=express()
 const urlencodedparser= bodyparser.urlencoded({extended: false})
 app.use(bodyparser.json())
 app.use(express.json());
-
+app.use(session({
+  secret: 'I am stuck, help me please!',
+  saveUninitialized: flase,
+  resave: false,
+} ));
 app.use(cors())
 
 app.use(express.static("public"));
@@ -183,4 +188,6 @@ app.get("/profile/",(req,res)=>{
   })
   
 })
-app.listen(port); 
+app.listen(port,()=>{
+  
+}); 
