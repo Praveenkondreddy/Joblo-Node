@@ -11,7 +11,7 @@ const session = require('express-session');
 
  db.connect(function(err) {
    if (err) throw err;
-   console.log("Connected");   
+   console.log("Connected...");   
  });
 
 const port=process.env.PORT|3000
